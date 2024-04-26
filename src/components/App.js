@@ -5,19 +5,18 @@ import { useState } from "react";
 
 function App() {
    const [Mode,setMode]= useState(true);
-   function ChangeMode (){
-     setMode(!Mode)}
+   function ChangeMode(){
+     setMode((Mode) => !Mode)
+    }
      console.log(Mode)
-
-  // replace 'false' with a state variable that can be toggled between true and false
-  // this will be used for the Dark Mode Toggle feature
-  const appClass = Mode ? "App dark" : "App light"
+  const appClass = Mode ? "App light" : "App dark"
 
   return (
     <div className={appClass}>
       <header>
         <h2>Shopster</h2>
-        <button onClick={ChangeMode} type="button">{Mode ? "Light Mode":"Dark Mode "}</button>
+
+        <button onClick={ChangeMode} type="button">{Mode?"Dark":"Light"}</button>
       </header>
       <ShoppingList items={itemData} />
     </div>
